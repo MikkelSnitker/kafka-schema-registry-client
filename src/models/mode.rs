@@ -13,16 +13,16 @@ use serde::{Deserialize, Serialize};
 
 /// Mode : Schema Registry operating mode
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Mode {
+pub struct Mode1 {
     /// Schema Registry operating mode
     #[serde(rename = "mode", skip_serializing_if = "Option::is_none")]
     pub mode: Option<Mode>,
 }
 
-impl Mode {
+impl Mode1 {
     /// Schema Registry operating mode
-    pub fn new() -> Mode {
-        Mode {
+    pub fn new() -> Mode1 {
+        Mode1 {
             mode: None,
         }
     }
