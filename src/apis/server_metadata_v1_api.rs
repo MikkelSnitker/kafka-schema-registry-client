@@ -45,7 +45,7 @@ pub async fn get_cluster_id(configuration: &configuration::Configuration, ) -> R
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -76,7 +76,7 @@ pub async fn get_schema_registry_version(configuration: &configuration::Configur
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;

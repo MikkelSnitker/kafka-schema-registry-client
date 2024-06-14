@@ -74,7 +74,7 @@ pub async fn delete_subject_mode(configuration: &configuration::Configuration, s
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -109,7 +109,7 @@ pub async fn get_mode(configuration: &configuration::Configuration, subject: &st
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -141,7 +141,7 @@ pub async fn get_top_level_mode(configuration: &configuration::Configuration, ) 
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -177,7 +177,7 @@ pub async fn update_mode(configuration: &configuration::Configuration, subject: 
     local_var_req_builder = local_var_req_builder.json(&mode_update_request);
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -213,7 +213,7 @@ pub async fn update_top_level_mode(configuration: &configuration::Configuration,
     local_var_req_builder = local_var_req_builder.json(&mode_update_request);
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;

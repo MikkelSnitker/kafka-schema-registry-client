@@ -55,7 +55,7 @@ pub async fn get(configuration: &configuration::Configuration, ) -> Result<Strin
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -102,7 +102,7 @@ pub async fn get_latest_with_metadata(configuration: &configuration::Configurati
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -134,7 +134,7 @@ pub async fn post(configuration: &configuration::Configuration, request_body: Op
     local_var_req_builder = local_var_req_builder.json(&request_body);
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;

@@ -118,7 +118,7 @@ pub async fn delete_schema_version(configuration: &configuration::Configuration,
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -153,7 +153,7 @@ pub async fn delete_subject(configuration: &configuration::Configuration, subjec
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -185,7 +185,7 @@ pub async fn get_referenced_by(configuration: &configuration::Configuration, sub
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -220,7 +220,7 @@ pub async fn get_schema_by_version(configuration: &configuration::Configuration,
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -255,7 +255,7 @@ pub async fn get_schema_only2(configuration: &configuration::Configuration, subj
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -296,7 +296,7 @@ pub async fn list(configuration: &configuration::Configuration, subject_prefix: 
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -334,7 +334,7 @@ pub async fn list_versions(configuration: &configuration::Configuration, subject
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -373,7 +373,7 @@ pub async fn look_up_schema_under_subject(configuration: &configuration::Configu
     local_var_req_builder = local_var_req_builder.json(&register_schema_request);
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
@@ -409,7 +409,7 @@ pub async fn register(configuration: &configuration::Configuration, subject: &st
     local_var_req_builder = local_var_req_builder.json(&register_schema_request);
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;

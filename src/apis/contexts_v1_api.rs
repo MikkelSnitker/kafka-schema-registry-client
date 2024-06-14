@@ -38,7 +38,7 @@ pub async fn list_contexts(configuration: &configuration::Configuration, ) -> Re
     }
 
     if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
-        local_var_req_builder.basic_auth(username, password);
+        local_var_req_builder = local_var_req_builder.basic_auth(username, password);
     }   
 
     let local_var_req = local_var_req_builder.build()?;
