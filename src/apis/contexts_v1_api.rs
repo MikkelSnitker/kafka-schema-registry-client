@@ -37,6 +37,10 @@ pub async fn list_contexts(configuration: &configuration::Configuration, ) -> Re
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }   
+
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 

@@ -82,6 +82,10 @@ pub async fn delete_subject_config(configuration: &configuration::Configuration,
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }   
+
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
@@ -109,6 +113,10 @@ pub async fn delete_top_level_config(configuration: &configuration::Configuratio
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }   
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -141,6 +149,10 @@ pub async fn get_subject_level_config(configuration: &configuration::Configurati
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }   
+
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
@@ -168,6 +180,14 @@ pub async fn get_top_level_config(configuration: &configuration::Configuration, 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }
+
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }      
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -198,6 +218,10 @@ pub async fn update_subject_level_config(configuration: &configuration::Configur
     }
     local_var_req_builder = local_var_req_builder.json(&config_update_request);
 
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }   
+
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
@@ -226,6 +250,10 @@ pub async fn update_top_level_config(configuration: &configuration::Configuratio
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     local_var_req_builder = local_var_req_builder.json(&config_update_request);
+
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }   
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

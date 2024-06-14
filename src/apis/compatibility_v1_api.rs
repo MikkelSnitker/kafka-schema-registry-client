@@ -55,6 +55,10 @@ pub async fn test_compatibility_by_subject_name(configuration: &configuration::C
     }
     local_var_req_builder = local_var_req_builder.json(&register_schema_request);
 
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }   
+
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
@@ -90,6 +94,10 @@ pub async fn test_compatibility_for_subject(configuration: &configuration::Confi
     }
     local_var_req_builder = local_var_req_builder.json(&register_schema_request);
 
+    if let Some((username, password)) = local_var_configuration.basic_auth.clone() {
+        local_var_req_builder.basic_auth(username, password);
+    }   
+    
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
